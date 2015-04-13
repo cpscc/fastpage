@@ -1,0 +1,14 @@
+{
+    "name": "cornerstone/duggar-training",
+    "description": "Repository for training links",
+    "require": {
+        "slim/slim": "~2.6",
+        "mustache/mustache": "~2.8"
+    },
+    "authors": [
+        {
+            "name": "anoxic",
+            "email": "brian@zickzickzick.com"
+        }
+    ]
+}
