@@ -1,0 +1,2 @@
+This folder contains simple key-value configuration options (as ASCII files)
+where the KEY is the filename and the VALUE is the contents of the file.
