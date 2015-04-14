@@ -3,4 +3,5 @@ vendor/*
 links.yaml
 promo_codes.yaml
 users.yaml
+config/*
 
