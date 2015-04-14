@@ -7,7 +7,7 @@ $app = new \Slim\Slim();
 $app->get('/', function () use ($app) {
     if (!authenticated())
         $app->response->redirect('/create_session');
-    render('index');
+    render('index', mustache_ready_links());
 });
 
 /**
