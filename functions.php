@@ -14,10 +14,15 @@ function initialize_repo($repo_name)
         if (file_exists($example=root("public/{$repo_name}_example.yaml")))
             return copy($example, $f);
         else
-            return file_put_contents($f, "");
+            return file_put_contents($f, "") !== false;
     }
 
     return true;
+}
+
+function store_repo($repo_name, $data)
+{
+    return file_put_contents(root("$repo_name.yaml", $data)) !== false;
 }
 
 function load_repo($repo_name)
@@ -79,6 +84,15 @@ function verify_admin($user, &$error = null)
 
     $error = "Unable to find login: {$user['login']}";
     return false;
+}
+
+function update_links($data, &$error = null)
+{
+    $p = parse_yaml($data, $error);
+    if ($error) {
+        return false;
+    }
+    return store_repo('links', $data);
 }
 
 function render($view, array $model = [], $string_loader = false)

@@ -1,0 +1,11 @@
+Video Training Materials:
+    - name: A good training video
+      url: http://example.com
+    - name: How to do important things
+      url: http://example.com
+
+Forms:
+    - name: Merchant Application for Gateway A
+      url: http://example.com
+    - name: Merchant Application for Gateway B
+      url: http://example.com
