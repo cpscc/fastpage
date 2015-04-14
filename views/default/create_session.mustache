@@ -1,8 +1,14 @@
-{{> error_success }}
+{{< default/layout }}
+    {{$content}}
+        <h1> Training Login </h1>
 
-<form method=post>
-    <label> Promo Code <input type=text name=promo_code value="{{promo_code}}"> </label>
-    <input type=submit value="Login">
-</form>
+        {{> error_success }}
 
-<a href="/create_admin_session">Admin Login</a>
+        <form method=post>
+            <label> Promo Code <input type=text name=promo_code value="{{promo_code}}"> </label>
+            <input class=button type=submit value="Login">
+        </form>
+
+        <a href="/create_admin_session">Admin Login</a>
+    {{/content}}
+{{/ default/layout }}
