@@ -7,18 +7,23 @@ function root($file = null)
 
 function initialize_repo($repo_name)
 {
-    if (!file_exists($f=root("$repo_name.json")))
+    if (!file_exists($f=root("$repo_name.yaml")))
         return file_put_contents($f, "");
 
     return true;
 }
 
+function load_repo($repo_name)
+{
+    if ($r = file_get_contents(root("$repo_name.yaml")))
+        return $r;
+    else
+        throw new RuntimeException("Could not find file: \"$repo_name.yaml\"");
+}
+
 function open_repo($repo_name)
 {
-    if ($r = file_get_contents(root("$repo_name.json")))
-        return json_decode($r, true);
-    else
-        throw new RuntimeException("Could not find file: \"$repo_name.json\"");
+    return parse_yaml(load_repo($repo_name));
 }
 
 function authenticated()
@@ -87,6 +92,17 @@ function render($view, array $model = [], $string_loader = false)
     unset($_SESSION['flash']);
 }
 
+function parse_yaml($string, &$error = null)
+{
+    $yaml = new Symfony\Component\Yaml\Parser();
+    try {
+        $value = $yaml->parse($string);
+        return $value;
+    } catch (Symfony\Component\Yaml\Exception\ParseException $e) {
+        $error = "Unable to parse the YAML string: " . $e->getMessage();
+        return false;
+    }
+}
 
 function array_select_keys(array $dict, array $keys)
 {
