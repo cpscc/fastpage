@@ -11,6 +11,9 @@ body {
   padding: 3% 5%;
 }  
 
+a {
+  color: #971B1E;
+}
 input,textarea {
   border: 2px solid;
   color: #7A7D78;
@@ -65,4 +68,15 @@ textarea {
   color: #FFF;
   padding: 1% 2%;
   box-shadow: 4px 4px #D7DEE8;
+}
+.logout {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-bottom: 1px dotted;
+  text-align: center;
+  text-decoration: none;
+  color: #97A39A;
 }

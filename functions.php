@@ -118,6 +118,8 @@ function render($view, array $model = [], $string_loader = false)
     if ($string_loader)
         unset($options['loader']);
 
+    $model['authenticated'] = authenticated();
+
     print (new Mustache_Engine($options))->render($view, $model);
 
     unset($_SESSION['flash']);
