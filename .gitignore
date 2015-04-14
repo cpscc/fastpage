@@ -1,2 +1,6 @@
 composer.lock
 vendor/*
+links.json
+promo_codes.json
+users.json
+

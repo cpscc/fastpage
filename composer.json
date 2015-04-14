@@ -1,9 +1,10 @@
 {
-    "name": "cornerstone/duggar-training",
+    "name": "cornerstone/merchant-training",
     "description": "Repository for training links",
     "require": {
         "slim/slim": "~2.6",
-        "mustache/mustache": "~2.8"
+        "mustache/mustache": "~2.8",
+        "symfony/yaml": "~2.6"
     },
     "authors": [
         {
