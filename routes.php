@@ -21,12 +21,12 @@ $app->get('/create_session', function () use ($app) {
 });
 
 $app->post('/create_session', function () use ($app) {
-    if (verify_promo_code($_POST['promo_code'], $error)) {
-        create_session();
-        return $app->response->redirect('/');
+    if (verify_admin($_POST, $error)) {
+        create_session('ADMIN');
+        return $app->response->redirect('/administrative_management');
     }
+    $_SESSION['flash'] = array_select_keys($_POST, ['login','password']);
     $_SESSION['flash']['error'] = $error;
-    $_SESSION['flash']['promo_code'] = $_POST['promo_code'];
     return $app->response->redirect('/create_session');
 });
 
@@ -53,20 +53,6 @@ $app->post('/administrative_management', function () use ($app) {
     $_SESSION['flash']['error'] = $error;
     $_SESSION['flash']['links'] = $_POST['links'];
     return $app->response->redirect('/administrative_management');
-});
-
-$app->get('/create_admin_session', function () use ($app) {
-    render('create_admin_session', $_SESSION['flash']);
-});
-
-$app->post('/create_admin_session', function () use ($app) {
-    if (verify_admin($_POST, $error)) {
-        create_session('ADMIN');
-        return $app->response->redirect('/administrative_management');
-    }
-    $_SESSION['flash'] = array_select_keys($_POST, ['login','password']);
-    $_SESSION['flash']['error'] = $error;
-    return $app->response->redirect('/create_admin_session');
 });
 
 $app->run();
