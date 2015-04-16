@@ -1,13 +1,14 @@
 There are only a few files here:
 
-links.json         A JSON file containing the link repository
-promo_codes.json   A JSON file containing the valid 
+users/             A directory containing user logins as YAML
+profiles/          A directory of profile page content as YAML
 
 routes.php         The routes in Slim
 functions.php      All of the PHP functions - there's really not much here
 
 public/            A folder containing all public assets - this is used as the document root
     index.php
+    profile/       A folder for storing image uploads
 
 config/            A folder containing all of the config options - these are just files with values
     theme          An ASCII text file containing the theme name

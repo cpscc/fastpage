@@ -7,17 +7,10 @@ function root($file = null)
 
 function initialize_repo($repo_name)
 {
-    # If the file doesn't exist, copy an "example"
-    # If the example doesn't exist, create an empty file
-
-    if (!file_exists($f=root("$repo_name.yaml"))) {
-        if (file_exists($example=root("public/{$repo_name}_example.yaml")))
-            return copy($example, $f);
-        else
-            return file_put_contents($f, "") !== false;
+    if (!file_exists($d=root($repo_name))) {
+        mkdir($d);
     }
-
-    return true;
+    return file_exists($d);
 }
 
 function store_repo($repo_name, $data)

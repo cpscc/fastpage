@@ -12,11 +12,11 @@ session_cache_limiter(false);
 session_start(); 
 
 
-/** JSON Repositories */
+/** YAML Repositories */
 
-initialize_repo('links');
-initialize_repo('promo_codes');
+initialize_repo('public/profile');
 initialize_repo('users');
+initialize_repo('profiles');
 
 
 /** Set theme */
