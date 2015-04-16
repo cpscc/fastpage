@@ -1,7 +1,10 @@
 <?php
 
 require '../vendor/autoload.php';
-require '../functions.php';
+
+foreach (glob("../lib/*.php") as $filename) {
+    require $filename;
+}
 
 ini_set('date.timezone', 'America/Los_Angeles');
 
@@ -14,9 +17,9 @@ session_start();
 
 /** YAML Repositories */
 
-initialize_repo('public/profile');
-initialize_repo('users');
-initialize_repo('profiles');
+repo_initialize('public/profile');
+repo_initialize('users');
+repo_initialize('profiles');
 
 
 /** Set theme */
