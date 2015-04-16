@@ -3,7 +3,7 @@
 require '../vendor/autoload.php';
 require '../functions.php';
 
-ini_set('date.timezone', 'America/San_Francisco');
+ini_set('date.timezone', 'America/Los_Angeles');
 
 ini_set('display_errors', true);
 error_reporting(E_ERROR | E_PARSE);
