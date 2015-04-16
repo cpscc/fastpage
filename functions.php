@@ -88,16 +88,6 @@ function update_links($data, &$error = null)
     return store_repo('links', $data);
 }
 
-function mustache_ready_links()
-{
-    $r = open_repo('links');
-    $sections = [];
-    foreach ($r as $section_name => $links) {
-        $sections[] = compact('section_name', 'links');
-    }
-    return compact('sections');
-}
-
 function render($view, array $model = [], $string_loader = false)
 {
     $view = THEME . '/' . $view;

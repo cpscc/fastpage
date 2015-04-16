@@ -5,9 +5,7 @@ $app = new \Slim\Slim();
  * Training Materials
  */
 $app->get('/', function () use ($app) {
-    if (!authenticated())
-        $app->response->redirect('/create_session');
-    render('index', mustache_ready_links());
+    render('index');
 });
 
 /**
