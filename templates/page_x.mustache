@@ -1,0 +1,27 @@
+{{< layout }}
+    {{$content}}
+        <h1> {{app}} {{^create}}Update{{/create}} {{#create}}Create{{/create}} Page</h1>
+        {{^create}} <a href="/pages/{{name}}/delete">Delete Page</a> {{/create}}
+
+        {{> alert_success }}
+
+        <form method=post {{#create}}action=/pages{{/create}}>
+            <label>
+                Page Name
+                <input name=name value="{{name}}" placeholder="Page Name">
+            </label>
+            <label>
+                Template
+                <select name=theme>
+                    {{#templates}}<option value="{{name}}">{{name}}</option>{{/templates}}
+                </select>
+            </label>
+
+            <hr>
+
+            {{$editing_template}}{{/editing_template}}
+
+            <input class="button large" type=submit>
+        </form>
+    {{/content}}
+{{/layout}}

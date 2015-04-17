@@ -1,15 +1,2 @@
-Start with...?
 
-  x  create missing folders
-  x  list pages
-  x  view single page
-  x  create example view/template from "template" property
-  x  allow setting things in JSON
-  x  hex encode the title for safety
-  x  make template listing page
-  x  make editing page
-  x  verify mustache templates
-  x  update templates
-  o  allow renaming
-  o  allow deleting
-  o  allow create
+  o  Copy create/read/update/delete templat bits to page bits

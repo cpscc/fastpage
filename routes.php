@@ -44,6 +44,50 @@ $app->post('/templates/:name/delete', function ($name) use ($app) {
 
 
 /**
+ * Page Dashboard
+ */
+$app->get('/pages', function () use ($app) {
+    render('pages', page_list());
+});
+
+$app->get('/pages/create', function ($name) use ($app) {
+    render('page_x', ['create'=>true] + template_list());
+});
+
+$app->get('/pages/:name', function ($name) use ($app) {
+    $page = page_fetch($name, true);
+    $model = $page + template_list() + compact('name');
+    // actually render a different template
+    //name_encode($name)."_edit"
+    render('page_x', $model);
+});
+
+$app->post('/pages(/:name)', function ($name) use ($app) {
+    if (page_update($name, $_REQUEST, $_SESSION['flash']['alert'])) {
+        $_SESSION['flash']['success'] = 'Page successfully updated!';
+        $app->response->redirect('/pages/' . urlencode($_REQUEST['name']));
+    } else {
+        $_SESSION['flash'] = $_SESSION['flash'] + array_select_keys($_REQUEST, ['name','css','view','data','edit']);
+        $app->response->redirect('/pages/' . urlencode($name));
+    }
+});
+
+$app->get('/pages/:name/delete', function ($name) use ($app) {
+    render('confirm', ['message'=>"Are you sure you want to delete '$name'?"]);
+});
+
+$app->post('/pages/:name/delete', function ($name) use ($app) {
+    if (page_delete($name, $error)) {
+        $_SESSION['flash']['success'] = "Page '$name' successfully deleted!";
+        $app->response->redirect('/pages');
+    } else {
+        $_SESSION['flash']['alert'] = "Something went wrong deleting '$name'";
+        $app->response->redirect('/pages/' . urlencode($name));
+    }
+});
+
+
+/**
  * Display Pages
  */
 $app->get('/', function () use ($app) {

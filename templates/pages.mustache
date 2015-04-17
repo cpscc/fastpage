@@ -1,0 +1,18 @@
+{{< layout }}
+    {{$content}}
+        <h1>{{app}} Pages</h1>
+        <a href="/pages/create">Add New Page</a>
+
+        {{> alert_success }}
+
+        <ul>
+            {{#pages}}
+            <li> {{name}} (<a href={{url}}>View</a> | <a href=/pages{{url}}>Edit</a>) </a>
+            {{/pages}}
+
+            {{^pages}}
+            <li> Nothing to see here!
+            {{/pages}}
+        </ul>
+    {{/content}}
+{{/layout}}
