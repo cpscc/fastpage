@@ -2,13 +2,6 @@
 $app = new \Slim\Slim();
 
 /**
- * List of pages
- */
-$app->get('/', function () use ($app) {
-    render('index', page_list());
-});
-
-/**
  * List of templates
  */
 $app->get('/templates', function () use ($app) {
@@ -40,6 +33,19 @@ $app->post('/administrative_management', function () use ($app) {
     $_SESSION['flash']['links'] = $_POST['links'];
     return $app->response->redirect('/administrative_management');
 });
+
+
+/**
+ * Display Pages
+ */
+$app->get('/', function () use ($app) {
+    render('index', page_list());
+});
+
+$app->get('/:name', function ($name) use ($app) {
+    render(page_template($name), page_fetch($name));
+});
+
 
 $app->run();
 exit;

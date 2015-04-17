@@ -1,8 +1,8 @@
 Start with...?
 
   x  create missing folders
-  o  list pages
-  o  view single page
+  x  list pages
+  x  view single page
   o  create example view/template from "template" property
     
   o  create "dashboard" template
