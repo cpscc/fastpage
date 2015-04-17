@@ -1,20 +1,40 @@
-There are only a few files here:
+ ~ page structure .~
 
-templates/
-    <name>_data.json     JSON data template, used when creating a new pages
-    <name>_view.mustache Mustache template for viewing
-    <name>_edit.mustache Mustache template for editing
+    templates/
+        <name>_data.json     JSON data template, used when creating a new pages
+        <name>_view.mustache Mustache template for viewing
+        <name>_edit.mustache Mustache template for editing
 
-pages/
-    <page_name>.json     All of the pages, in JSON
-                         
-public/                  The document root, containing all public assets
-    index.php            PHP Single Entrance Point
+    pages/
+        <page_name>.json     All of the pages, in JSON
+                             
+    public/                  The document root, containing all public assets
+        index.php            PHP Single Entrance Point
 
-public/images/
-    <name>_<chksum>.png  Each image uploaded is held here
-    
-config.php               URL routing a'la Slim
-routes.php               URL routing a'la Slim
-lib/                     All of the PHP functions
+    public/images/
+        <name>_<chksum>.png  Each image uploaded is held here
+        
+    config.php               Where we keep the icky PHP stuff
+    routes.php               URL routing a'la Slim
+    lib/                     All of the PHP functions
+
+
+
+ ~ url routes .~
+
+    GET    /pages
+    POST   /pages
+    GET    /pages/:name
+    POST   /pages/:name
+    DELETE /pages/:name
+
+    GET    /templates
+    POST   /templates
+    GET    /templates/:name
+    POST   /templates/:name
+    DELETE /templates/:name
+
+    GET    /
+    GET    /:name
+
 
