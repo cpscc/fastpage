@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang=en>
+<html>
+    <head>
+        <meta charset=utf-8>
+        <title> {{ app }} </title>
+        <link rel=stylesheet href=/app.css>
+    </head>
+    <body>
+        <div class=menu>
+            <div class=wrapper>
+                <h1 class="title"> {{ app }} </h1>
+
+                <a class="menu-item active" href="/templates">
+                    <li>Templates</li>
+                </a>
+                <a class=menu-item href="/pages">
+                    <li>Pages</li>
+                </a>
+            </div>
+        </div>
+        <div class="wrapper content">
+            {{$content}}{{/content}}
+        </div>
+    </body>
+</html>

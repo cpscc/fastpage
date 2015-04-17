@@ -1,10 +1,15 @@
-<h1>{{app}} Templates</h1>
+{{< layout }}
+    {{$content}}
+        <h1>{{app}} Templates</h1>
 
-{{#templates}}
-<li> <a href={{url}}>{{name}} template</a>
-{{/templates}}
+        <ul>
+            {{#templates}}
+            <li> <a href={{url}}>&#147;{{name}}&#148; template</a>
+            {{/templates}}
 
-{{^templates}}
-<li> Nothing to see here!
-{{/templates}}
-
+            {{^templates}}
+            <li> Nothing to see here!
+            {{/templates}}
+        </ul>
+    {{/content}}
+{{/layout}}

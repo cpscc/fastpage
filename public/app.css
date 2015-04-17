@@ -1,0 +1,39 @@
+.alert    { background: #BB4242; color: #FFF; padding: 3%; box-shadow: 4px 4px #D7DEE8; text-align: center; }
+.success  { background: #426ECB; color: #FFF; padding: 1.5% 3%; box-shadow: 4px 4px #D7DEE8; text-align: center; }
+
+*              { margin: 0; padding: 0; font: inherit; color: inherit; vertical-align: inherit; }
+html           { font: 100%/1.7 Verdana, sans-serif; }
+body           { color: #374356; background: #F2F2F2; }
+body *+*       { margin-top: 1.5em; }
+a              { text-decoration: inherit; }
+
+h1,h2,h3       { color: #222041; }
+h1             { font-size: 1.6em; font-weight: bold; } 
+h2             { font-size: 1.2em; } 
+h3             { font-size: 1.1em; } 
+li             { margin: 0; }
+ul,ol          { margin: 1em 0 0; }
+pre, code      { font-family: monospace; }
+
+.content a     { color: #D85B3E; text-decoration: underline; }
+.content a:hover { color: #000; }
+.content li    { padding: 2em 2.5em; list-style: none; }
+.content li+li { border-top: 1px solid #E0DCDC; }
+
+input,textarea { border: 2px solid; color: #7A7D78; display: block; padding: .5em 2em; width: 100%; box-sizing: border-box; margin: 0 0 1em; }
+input:focus, textarea:focus { color: inherit; outline: 0; box-shadow: 0 1px 1px rgba(0,0,0,0.14); }
+label { display: block; }
+textarea { min-height: 16em; font-family: monospace; padding: 1.2em 2em; }
+
+.wrapper { width: 72%; max-width: 1200px; max-width: 80rem; margin: auto; }
+.wrapper:before, .wrapper:after { content: ""; display: table; clear: both; }
+
+.menu        { background: #464174; color: #FFE8CF; font-size: 88%; line-height: 3.9em; float: left; width: 100%; margin-bottom: 3em; border-bottom: 1px solid #fff; }
+.menu *      { display: block; list-style: none; font-weight: bold; }
+
+.menu-item          { float: left; padding: 2px 1.75% 4px; margin: 0; } 
+.menu-item.settings { float: right; position: relative; }
+
+.title       { float: left; color: #FAF8D0; font-size: 1.9em; padding: 1px 1.75% 5px 0; margin: 0; }
+
+.menu-item.active { background: #31335A; } 
