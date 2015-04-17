@@ -5,7 +5,7 @@ $app = new \Slim\Slim();
  * List of pages
  */
 $app->get('/', function () use ($app) {
-    render('index');
+    render('index', page_list());
 });
 
 /**

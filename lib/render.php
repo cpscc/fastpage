@@ -10,7 +10,7 @@ function render($view, array $model = [], $string_loader = false)
     if ($string_loader)
         unset($options['loader']);
 
-    $model += (array)$_SESSION['flash'];
+    $model = array_merge($model, (array)$_SESSION['flash'], ['app'=>APP]);
     $_SESSION['flash'] = [];
 
     print (new Mustache_Engine($options))->render($view, $model);
