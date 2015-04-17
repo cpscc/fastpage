@@ -7,7 +7,12 @@ Start with...?
   x  allow setting things in JSON
   x  hex encode the title for safety
   x  make template listing page
-  o  make editing page
+  x  make editing page
+  x  verify mustache templates
+  x  update templates
+  o  allow renaming
+  o  allow deleting
+  o  allow create
     
   o  create "dashboard" template
   o  list templates with edit and delete buttons

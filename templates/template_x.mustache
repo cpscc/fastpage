@@ -4,6 +4,8 @@ input, textarea { display: block; }
 
 <h1> {{app}} Update Template </h1>
 
+{{> alert_success }}
+
 <form method=post>
     <label>
         Template Name
@@ -12,7 +14,7 @@ input, textarea { display: block; }
 
     <label>
         Layout CSS
-        <textarea placeholder="CSS">{{css}}</textarea>
+        <textarea name=css placeholder="CSS">{{css}}</textarea>
     </label>
     <label>
         Layout Template (<a href="https://mustache.github.io/mustache.5.html">mustache</a>)

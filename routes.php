@@ -1,6 +1,7 @@
 <?php
 $app = new \Slim\Slim();
 
+
 /**
  * Template Dashboard
  */
@@ -12,6 +13,17 @@ $app->get('/templates/:name', function ($name) use ($app) {
     $template = template_fetch($name);
     render('template_x', $template);
 });
+
+$app->post('/templates/:name', function ($name) use ($app) {
+    if (template_update($name, $_REQUEST, $_SESSION['flash']['alert'])) {
+        $_SESSION['flash']['success'] = 'Page successfully updated!';
+        $app->response->redirect('/templates/' . urlencode($_REQUEST['name']));
+    } else {
+        $_SESSION['flash'] = $_SESSION['flash'] + array_select_keys($_REQUEST, ['name','css','view','data','edit']);
+        $app->response->redirect('/templates/' . urlencode($name));
+    }
+});
+
 
 /**
  * Display Pages
