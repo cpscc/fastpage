@@ -3,7 +3,10 @@ Start with...?
   x  create missing folders
   x  list pages
   x  view single page
-  o  create example view/template from "template" property
+  x  create example view/template from "template" property
+  x  allow setting things in JSON
+  o  make editing page
+  o  base64 the title for safety
     
   o  create "dashboard" template
   o  list templates with edit and delete buttons

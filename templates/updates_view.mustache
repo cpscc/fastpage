@@ -1,0 +1,14 @@
+<!doctype html>
+<link rel=stylesheet href=/updates_view.css>
+{{#page.custom_css}}<style>{{{.}}}</style>{{/page.custom_css}}
+
+<body>
+    <h1><i>{{page.site_name}}</i></h1>
+
+    {{#page.updates}}
+    <div class=update>
+        <h2 class=title>{{title}}</h2>
+        <div class=body>{{body}}</div>
+    </div>
+    {{/page.updates}}
+</body>

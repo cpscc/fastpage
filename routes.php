@@ -43,7 +43,8 @@ $app->get('/', function () use ($app) {
 });
 
 $app->get('/:name', function ($name) use ($app) {
-    render(page_template($name), page_fetch($name));
+    $page = page_fetch($name);
+    render(page_template($page), compact('page'));
 });
 
 
