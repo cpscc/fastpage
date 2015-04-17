@@ -1,18 +1,20 @@
 There are only a few files here:
 
-users/             A directory containing user logins as YAML
-profiles/          A directory of profile page content as YAML
+templates/
+    <name>_data.json     JSON data template, used when creating a new pages
+    <name>_view.mustache Mustache template for viewing
+    <name>_edit.mustache Mustache template for editing
 
-routes.php         The routes in Slim
+pages/
+    <page_name>.json     All of the pages, in JSON
+                         
+public/                  The document root, containing all public assets
+    index.php            PHP Single Entrance Point
 
-lib/               All of the PHP functions
+public/images/
+    <name>_<chksum>.png  Each image uploaded is held here
+    
+config.php               URL routing a'la Slim
+routes.php               URL routing a'la Slim
+lib/                     All of the PHP functions
 
-public/            A folder containing all public assets - this is used as the document root
-    index.php
-    profile/       A folder for storing image uploads
-
-config/            A folder containing all of the config options - these are just files with values
-    theme          An ASCII text file containing the theme name
-
-views/             A folder containing all the templates, namespaced by theme
-    <theme_name>/

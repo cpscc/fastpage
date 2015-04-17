@@ -12,9 +12,9 @@ ini_set('display_errors', true);
 error_reporting(E_ERROR | E_PARSE);
 
 
-/** YAML Repositories */
+/** Folders and Repositories */
 
-repo_initialize('public/profile');
-repo_initialize('users');
-repo_initialize('profiles');
+repo_initialize('public/images');
+repo_initialize('pages');
+repo_initialize('templates');
 
