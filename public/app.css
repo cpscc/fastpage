@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Elsie:400);
+
 .alert    { background: #BB4242; color: #FFF; padding: 3%; box-shadow: 4px 4px #D7DEE8; text-align: center; }
 .success  { background: #426ECB; color: #FFF; padding: 1.5% 3%; box-shadow: 4px 4px #D7DEE8; text-align: center; }
 
@@ -25,6 +27,8 @@ input:focus, textarea:focus { color: inherit; outline: 0; box-shadow: 0 1px 1px 
 label { display: block; }
 textarea { min-height: 16em; font-family: monospace; padding: 1.2em 2em; }
 
+.alert .button { width: auto; padding: .5em 5em; margin: 1em auto 0; }
+
 .wrapper { width: 72%; max-width: 1200px; max-width: 80rem; margin: auto; }
 .wrapper:before, .wrapper:after { content: ""; display: table; clear: both; }
 
@@ -34,6 +38,6 @@ textarea { min-height: 16em; font-family: monospace; padding: 1.2em 2em; }
 .menu-item          { float: left; padding: 2px 1.75% 4px; margin: 0; } 
 .menu-item.settings { float: right; position: relative; }
 
-.title       { float: left; color: #FAF8D0; font-size: 1.9em; padding: 1px 1.75% 5px 0; margin: 0; }
+.title       { float: left; color: #FAF8D0; font-size: 2.7em; padding: 1px 1.75% 5px 0; margin: 0; font-family: Elsie; }
 
 .menu-item.active { background: #31335A; } 
