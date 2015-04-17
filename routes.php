@@ -2,10 +2,15 @@
 $app = new \Slim\Slim();
 
 /**
- * List of templates
+ * Template Dashboard
  */
 $app->get('/templates', function () use ($app) {
     render('templates', template_list());
+});
+
+$app->get('/templates/:name', function ($name) use ($app) {
+    $template = template_fetch($name);
+    render('template_x', $template);
 });
 
 /**

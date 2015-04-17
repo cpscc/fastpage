@@ -10,6 +10,7 @@
                              
     public/                  The document root, containing all public assets
         index.php            PHP Single Entrance Point
+        <name>_view.css      CSS for the template
 
     public/images/
         <name>_<chksum>.png  Each image uploaded is held here

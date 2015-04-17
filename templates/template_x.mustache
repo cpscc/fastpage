@@ -1,0 +1,31 @@
+<style>
+input, textarea { display: block; }
+</style>
+
+<h1> {{app}} Update Template </h1>
+
+<form method=post>
+    <label>
+        Template Name
+        <input name=name value="{{name}}" placeholder="Template Name">
+    </label>
+
+    <label>
+        Layout CSS
+        <textarea placeholder="CSS">{{css}}</textarea>
+    </label>
+    <label>
+        Layout Template (<a href="https://mustache.github.io/mustache.5.html">mustache</a>)
+        <textarea name=view placeholder="Layout">{{view}}</textarea>
+    </label>
+    <label>
+        JSON Data Template
+        <textarea name=data placeholder="Placeholder Data">{{data}}</textarea>
+    </label>
+    <label>
+        Editing Template (<a href="https://mustache.github.io/mustache.5.html">mustache</a>)
+        <textarea name=edit placeholder="Editing Template">{{edit}}</textarea>
+    </label>
+
+    <input class="button large" type=submit>
+</form>
