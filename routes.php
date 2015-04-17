@@ -5,7 +5,7 @@ $app = new \Slim\Slim();
  * List of templates
  */
 $app->get('/templates', function () use ($app) {
-    render('templates');
+    render('templates', template_list());
 });
 
 /**
