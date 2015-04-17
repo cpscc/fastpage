@@ -9,12 +9,16 @@ $app->get('/templates', function () use ($app) {
     render('templates', template_list());
 });
 
+$app->get('/templates/create', function ($name) use ($app) {
+    render('template_x', ['create'=>true]);
+});
+
 $app->get('/templates/:name', function ($name) use ($app) {
     $template = template_fetch($name);
     render('template_x', $template);
 });
 
-$app->post('/templates/:name', function ($name) use ($app) {
+$app->post('/templates(/:name)', function ($name) use ($app) {
     if (template_update($name, $_REQUEST, $_SESSION['flash']['alert'])) {
         $_SESSION['flash']['success'] = 'Template successfully updated!';
         $app->response->redirect('/templates/' . urlencode($_REQUEST['name']));
