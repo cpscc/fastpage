@@ -55,14 +55,17 @@ $app->get('/pages/create', function ($name) use ($app) {
 });
 
 $app->get('/pages/:name', function ($name) use ($app) {
-    $page = page_fetch($name, true);
-    $model = $page + template_list() + compact('name');
-    // actually render a different template
-    //name_encode($name)."_edit"
+    $page = page_fetch($name);
+    $model = ['page'=>render_keys($page)] + template_list() + compact('name');
+
+    $model['editing_template'] =
+        render(name_encode($page->theme)."_edit", $model, false, true);
+
     render('page_x', $model);
 });
 
 $app->post('/pages(/:name)', function ($name) use ($app) {
+    // make sure _add_keys and theme get stored
     if (page_update($name, $_REQUEST, $_SESSION['flash']['alert'])) {
         $_SESSION['flash']['success'] = 'Page successfully updated!';
         $app->response->redirect('/pages/' . urlencode($_REQUEST['name']));

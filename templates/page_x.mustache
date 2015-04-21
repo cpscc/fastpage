@@ -1,7 +1,11 @@
 {{< layout }}
     {{$content}}
         <h1> {{app}} {{^create}}Update{{/create}} {{#create}}Create{{/create}} Page</h1>
-        {{^create}} <a href="/pages/{{name}}/delete">Delete Page</a> {{/create}}
+        {{^create}}
+            <a href="/pages/{{name}}/delete">Delete Page</a>
+            |
+            <a href="/{{name}}">View Page</a>
+        {{/create}}
 
         {{> alert_success }}
 
@@ -10,16 +14,20 @@
                 Page Name
                 <input name=name value="{{name}}" placeholder="Page Name">
             </label>
+            {{#create}}
             <label>
                 Template
                 <select name=theme>
                     {{#templates}}<option value="{{name}}">{{name}}</option>{{/templates}}
                 </select>
             </label>
+            {{/create}}
 
-            <hr>
-
-            {{$editing_template}}{{/editing_template}}
+            {{^create}}
+                <input type=hidden name=theme value="{{page.theme}}">
+                <hr>
+                {{{editing_template}}}
+            {{/create}}
 
             <input class="button large" type=submit>
         </form>

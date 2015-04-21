@@ -1,2 +1,6 @@
 
-  o  Copy create/read/update/delete templat bits to page bits
+  x  Make a "render_keys" function
+  x  Copy create/read/update/delete template bits to page bits
+  o  Page update works
+  o  Page delete works
+  o  Page create works

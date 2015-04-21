@@ -1,0 +1,20 @@
+{{#page}}
+    <label>
+        Website Title
+        <input name=site_name value="{{site_name}}">
+    </label>
+
+    {{#updates}}
+        <label>
+            Entry Title
+            <input name=updates[{{key}}][title] value="{{title}}">
+        </label>
+
+        <label>
+            Entry Body
+            <textarea name=updates[{{key}}][body]>{{body}}</textarea>
+        </label>
+    {{/updates}}
+{{/page}}
+
+
