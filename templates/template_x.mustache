@@ -1,11 +1,14 @@
 {{< layout }}
     {{$content}}
-    <h1> {{app}} {{^create}}Update{{/create}} {{#create}}Create{{/create}} Template</h1>
-        <a href="/templates/{{name}}/delete">Delete Template</a>
+        <h1> {{app}} {{^create}}Update{{/create}} {{#create}}Create{{/create}} Template</h1>
+        {{^create}} <a href="/templates/{{name}}/delete">Delete Template</a> {{/create}}
 
         {{> alert_success }}
 
         <form method=post {{#create}}action=/templates{{/create}}>
+
+            {{#create}} <input type=hidden name=create value=1> {{/create}}
+
             <label>
                 Template Name
                 <input name=name value="{{name}}" placeholder="Template Name">

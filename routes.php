@@ -18,9 +18,11 @@ $app->get('/templates/:name', function ($name) use ($app) {
     render('template_x', $template);
 });
 
-$app->post('/templates(/:name)', function ($name) use ($app) {
+$app->post('/templates(/:name)/', function ($name) use ($app) {
+    if (!$name) $name = $_REQUEST['name'];
+
     if (template_update($name, $_REQUEST, $_SESSION['flash']['alert'])) {
-        $_SESSION['flash']['success'] = 'Template successfully updated!';
+        $_SESSION['flash']['success'] = ($_REQUEST['create']) ? 'Template successfully created!' : 'Template successfully updated!';
         $app->response->redirect('/templates/' . urlencode($_REQUEST['name']));
     } else {
         $_SESSION['flash'] = $_SESSION['flash'] + array_select_keys($_REQUEST, ['name','css','view','data','edit']);
