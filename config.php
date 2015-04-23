@@ -11,7 +11,7 @@ ini_set('date.timezone', 'America/Los_Angeles');
 ini_set('display_errors', true);
 error_reporting(E_ERROR | E_PARSE);
 
-define('APP', 'Pagio');
+define('APP', 'Fastpage');
 
 
 /** Folders and Repositories */
