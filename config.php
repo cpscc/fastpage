@@ -19,4 +19,5 @@ define('APP', 'Pagio');
 repo_initialize('public/images');
 repo_initialize('pages');
 repo_initialize('templates');
+repo_initialize('users');
 

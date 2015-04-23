@@ -7,19 +7,26 @@
         <link rel=stylesheet href=/app.css>
     </head>
     <body>
+        {{#logged_in}}
         <div class=menu>
             <div class=wrapper>
                 <h1 class="title"> {{ app }} </h1>
 
+                {{#admin}}
                 <a class="menu-item" href="/templates">
                     <li>Templates</li>
                 </a>
+                {{/admin}}
                 <a class=menu-item href="/pages">
                     <li>Pages</li>
                 </a>
+                <a class=menu-item href="/close_session">
+                    <li>Logout</li>
+                </a>
             </div>
         </div>
-        <div class="wrapper content">
+        {{/logged_in}}
+        <div class="wrapper content {{^logged_in}}noheader{{/logged_in}}">
             {{$content}}{{/content}}
         </div>
     </body>

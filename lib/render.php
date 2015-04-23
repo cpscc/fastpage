@@ -13,6 +13,9 @@ function render($view, array $model = [], $string_loader = false, $no_print = fa
     $model = array_merge($model, (array)$_SESSION['flash'], ['app'=>APP]);
     $_SESSION['flash'] = [];
 
+    if (authenticated()) $model['logged_in'] = true;
+    if (admin()) $model['admin'] = true;
+
     $render = (new Mustache_Engine($options))->render($view, $model);
 
     if($no_print) return $render;

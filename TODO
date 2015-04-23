@@ -1,6 +1,8 @@
 
   x  Use a more human-friendly name encoding
-  o  Add users
+  x  Add users
+
+  o  Make users only able to access their own pages
 
   --
 

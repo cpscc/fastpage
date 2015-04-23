@@ -1,6 +1,6 @@
 <?php
 function authenticated()
 {
-    return isset($_SESSION['AUTHENTICATED']) || isset($_SESSION['ADMIN']);
+    return isset($_SESSION['USER']) || isset($_SESSION['ADMIN']);
 }
 

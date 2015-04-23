@@ -34,6 +34,7 @@ textarea { min-height: 16em; font-family: monospace; padding: 1.2em 2em; }
 
 .wrapper { width: 72%; max-width: 1200px; max-width: 80rem; margin: auto; }
 .wrapper:before, .wrapper:after { content: ""; display: table; clear: both; }
+.noheader { margin-top: 6%; }
 
 .menu        { background: #464174; color: #FFE8CF; font-size: 88%; line-height: 3.9em; float: left; width: 100%; margin-bottom: 3em; border-bottom: 1px solid #fff; }
 .menu *      { display: block; list-style: none; font-weight: bold; }
