@@ -1,6 +1,7 @@
 <?php
-function create_session($name = 'USER')
+function create_session($role = 'USER', $login = '')
 {
-    return $_SESSION[strtoupper($name)] = true;
+    $_SESSION[strtoupper($role)] = true;
+    $_SESSION['LOGIN'] = $login;
 }
 

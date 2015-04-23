@@ -16,7 +16,7 @@ $app->get('/create_session', function () use ($app) {
 
 $app->post('/create_session', function () use ($app) {
     if ($user = user_verify($_POST, $error)) {
-        create_session($user['role']);
+        create_session($user['role'], $user['login']);
         return $app->response->redirect('/pages');
     }
     $_SESSION['flash'] = array_select_keys($_POST, ['login','password']);
@@ -88,7 +88,7 @@ $app->post('/templates/:name/delete', function ($name) use ($app) {
 $app->get('/pages/', function () use ($app) {
     authenticate($app);
 
-    render('pages', page_list());
+    render('pages', page_list(['login'=>current_user()]));
 });
 
 $app->get('/pages/create', function ($name) use ($app) {
@@ -105,6 +105,8 @@ $app->get('/pages/:name', function ($name) use ($app) {
 
     $model['editing_template'] =
         render(name_encode($page->theme)."_edit", $model, false, true);
+
+    $model['permissions'] = permissions_fetch($name);
 
     render('page_x', $model);
 });

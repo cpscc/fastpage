@@ -16,5 +16,7 @@ function page_update($name, $data, &$error)
         if (isset($data[$k])) $v = $data[$k];
     }
 
+    if (isset($data['permissions'])) resource_store('permissions/'.name_encode($data['name']), $data['permissions']);
+
     return page_store($data['name'], $page, $error);
 }

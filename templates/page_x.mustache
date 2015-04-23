@@ -15,6 +15,11 @@
                 <input name=name value="{{name}}" placeholder="Page Name">
             </label>
 
+            <label>
+                Permissions (comma separated list of non-admin users who have access)
+                <input name=permissions value="{{permissions}}" placeholder="user1, user2, ...">
+            </label>
+
             {{#create}}
             <input type=hidden name=create value=1>
             <label>
