@@ -1,7 +1,7 @@
 <?php
 function name_encode($raw)
 {
-    if ($raw == 'default') return $raw;
-    return bin2hex($raw);
+    return preg_replace("/ +/", " ", preg_replace("/[^a-z0-9.]/", "_", strtolower($raw)));
 }
+
 

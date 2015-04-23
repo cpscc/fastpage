@@ -1,16 +1,11 @@
 
-  x  Make a "render_keys" function
-  x  Copy create/read/update/delete template bits to page bits
-  x  Page update works
-  x  Page create works
-
-  o  Page delete works
-
+  x  Use a more human-friendly name encoding
   o  Add users
 
   --
 
-  o  Use a more human-friendly name encoding
-  o  Convert line endings to UNIX
+  CLEANUP (not necessary, but would be nice)
+
+  o  Convert line endings to UNIX when saving user input
   o  Rename *_x to *_create_update
   o  Move main templates into a views/, keep user-created templates in templates/
