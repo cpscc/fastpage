@@ -1,7 +1,7 @@
 <?php
 function page_delete($name, &$error)
 {
-    //$name = name_encode($name);
+    $name = name_encode($name);
 
     if (resource_delete("pages/{$name}.json")) {
         return true;
