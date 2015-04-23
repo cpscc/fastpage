@@ -1,5 +1,0 @@
-body { margin: 0; font-family: verdana; line-height: 1.5; }
-h1 { border-bottom: 2px solid #D26060; color: #FFF; font-size: 1.2em; margin-top: 0; }
-h1 i { background: #D26060; padding: .2em 2em .2em 1em; display: inline-block; }
-h2 { text-transform: capitalize; }
-.update { margin: 5%; padding: 0 1em; border-top: 1px dashed #ABC0AB; max-width: 50em; }
