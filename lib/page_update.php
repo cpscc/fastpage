@@ -3,7 +3,7 @@ function page_update($name, $data, &$error)
 {
     # Renaming
     if ($data['name'] !== $name) {
-        if (page_exist($data['name'])) {
+        if (page_exists($data['name'])) {
             $error = "Cannot rename to '{$data['name']}', that page already exists. Please delete the page '{$data['name']}' first.";
             return false;
         }

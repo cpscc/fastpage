@@ -48,7 +48,7 @@ $app->post('/templates/:name/delete', function ($name) use ($app) {
 /**
  * Page Dashboard
  */
-$app->get('/pages', function () use ($app) {
+$app->get('/pages/', function () use ($app) {
     render('pages', page_list());
 });
 
@@ -58,7 +58,7 @@ $app->get('/pages/create', function ($name) use ($app) {
 
 $app->get('/pages/:name', function ($name) use ($app) {
     $page = page_fetch($name);
-    $model = ['page'=>render_keys($page)] + template_list() + compact('name');
+    $model = ['page'=>render_keys($page)] + compact('name');
 
     $model['editing_template'] =
         render(name_encode($page->theme)."_edit", $model, false, true);
@@ -66,7 +66,7 @@ $app->get('/pages/:name', function ($name) use ($app) {
     render('page_x', $model);
 });
 
-$app->post('/pages(/:name)', function ($name) use ($app) {
+$app->post('/pages(/:name)/', function ($name) use ($app) {
     // make sure _add_keys and theme get stored
     if (page_update($name, $_REQUEST, $_SESSION['flash']['alert'])) {
         $_SESSION['flash']['success'] = 'Page successfully updated!';
@@ -101,7 +101,7 @@ $app->get('/', function () use ($app) {
 
 $app->get('/:name', function ($name) use ($app) {
     $page = page_fetch($name);
-    $theme = bin2hex($page->theme);
+    $theme = name_encode($page->theme);
     render(page_template($page), compact('page','theme'));
 });
 

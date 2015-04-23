@@ -1,6 +1,16 @@
 
   x  Make a "render_keys" function
   x  Copy create/read/update/delete template bits to page bits
-  o  Page update works
+  x  Page update works
+  x  Page create works
+
   o  Page delete works
-  o  Page create works
+
+  o  Add users
+
+  --
+
+  o  Use a more human-friendly name encoding
+  o  Convert line endings to UNIX
+  o  Rename *_x to *_create_update
+  o  Move main templates into a views/, keep user-created templates in templates/
