@@ -88,7 +88,10 @@ $app->post('/templates/:name/delete', function ($name) use ($app) {
 $app->get('/pages/', function () use ($app) {
     authenticate($app);
 
-    render('pages', page_list(['login'=>current_user()]));
+    $opts = [];
+    if (!admin()) $opts['login'] = current_user();
+
+    render('pages', page_list($opts));
 });
 
 $app->get('/pages/create', function ($name) use ($app) {
