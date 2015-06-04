@@ -1,13 +1,13 @@
 
-  x  Use a more human-friendly name encoding
-  x  Add users
+  o  Verify JSON when creating templates
 
+  o  Add some documentation to the templates page
+  o  Add image upload capabilities
   o  Make users only able to access their own pages
 
   --
 
   CLEANUP (not necessary, but would be nice)
 
-  o  Convert line endings to UNIX when saving user input
   o  Rename *_x to *_create_update
-  o  Move main templates into a views/, keep user-created templates in templates/
+  o  Move main templates into templates/app and others into templates/custom
