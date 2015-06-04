@@ -11,12 +11,16 @@ function page_update($name, $data, &$error)
     }
 
     # Appending new info to template json
-    $page = json_decode(template_fetch($data['theme'])['data'], true);
-    foreach ($page as $k=>&$v) {
-        if (isset($data[$k])) $v = $data[$k];
-    }
+    if ($page = json_decode(template_fetch($data['theme'])['data'], true)) {
+	    foreach ($page as $k=>&$v) {
+	        if (isset($data[$k])) $v = $data[$k];
+	    }
 
-    if (isset($data['permissions'])) resource_store('permissions/'.name_encode($data['name']), $data['permissions']);
+	    if (isset($data['permissions'])) resource_store('permissions/'.name_encode($data['name']), $data['permissions']);
+	} else {
+		$error = 'Error loading page template';
+		return false;
+	}
 
     return page_store($data['name'], $page, $error);
 }
