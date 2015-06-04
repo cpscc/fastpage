@@ -128,7 +128,10 @@ $app->post('/pages(/:name)/', function ($name) use ($app) {
         $app->response->redirect('/pages/' . urlencode($_REQUEST['name']));
     } else {
         $_SESSION['flash'] = $_SESSION['flash'] + array_select_keys($_REQUEST, ['name','css','view','data','edit']);
-        $app->response->redirect('/pages/' . urlencode($name));
+        if (!$name)
+            $app->response->redirect('/pages/create');
+        else
+            $app->response->redirect('/pages/' . urlencode($name));
     }
 });
 
