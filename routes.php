@@ -104,12 +104,17 @@ $app->get('/pages/:name', function ($name) use ($app) {
     authenticate($app);
 
     $page = page_fetch($name);
-    $model = ['page'=>render_keys($page)] + compact('name');
 
-    $model['editing_template'] =
-        render(name_encode($page->theme)."_edit", $model, false, true);
+    if ($page) {
+        $model = ['page'=>render_keys($page)] + compact('name');
 
-    $model['permissions'] = permissions_fetch($name);
+        $model['editing_template'] =
+            render(name_encode($page->theme)."_edit", $model, false, true);
+
+        $model['permissions'] = permissions_fetch($name);
+    } else {
+        $model = ['alert'=>'Could not find page'];
+    }
 
     render('page_x', $model);
 });
