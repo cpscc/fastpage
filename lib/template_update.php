@@ -1,13 +1,23 @@
 <?php
 function template_update($name, $data, &$error)
 {
-    // verify mustache template
+    // ensure valid Mustache and JSON inputs
     // make sure, if name is being changed, it doesn't overwrite another template
 
     $mustaches = ['view'=>'Layout Template','edit'=>'Editing Template'];
 
     foreach ($mustaches as $field=>$label) {
         verify_mustache($data[$field], $error);
+        if ($error) {
+            $error = "($label) $error";
+            return false;
+        }
+    }
+
+    $jsons = ['data'=>'Data Template'];
+
+    foreach ($jsons as $field=>$label) {
+        verify_json($data[$field], $error);
         if ($error) {
             $error = "($label) $error";
             return false;
