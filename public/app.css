@@ -20,9 +20,10 @@ pre, code      { font-family: monospace; }
 
 .content a     { color: #D85B3E; text-decoration: underline; }
 .content a:hover { color: #000; }
-.content li    { padding: 2em 2.5em; list-style: none; }
-.content li+li { border-top: 1px solid #E0DCDC; }
 .content h1    { text-transform: uppercase; letter-spacing: .1ex; }
+
+.listing li    { padding: 2em 2.5em; list-style: none; }
+.listing li+li { border-top: 1px solid #E0DCDC; }
 
 input,textarea,select { border: 2px solid; color: #7A7D78; display: block; padding: .5em 2em; width: 100%; box-sizing: border-box; margin: 0 0 1em; }
 input:focus, textarea:focus { color: inherit; outline: 0; box-shadow: 0 1px 1px rgba(0,0,0,0.14); }
@@ -35,6 +36,8 @@ textarea { min-height: 16em; font-family: monospace; padding: 1.2em 2em; }
 .wrapper { width: 72%; max-width: 1200px; max-width: 80rem; margin: auto; }
 .wrapper:before, .wrapper:after { content: ""; display: table; clear: both; }
 .noheader { margin-top: 6%; }
+.help { margin: 1em 0 1.5em; color: #9B8D92; }
+.collapsed { display: none; }
 
 .menu        { background: #464174; color: #FFE8CF; font-size: 88%; line-height: 3.9em; float: left; width: 100%; margin-bottom: 3em; border-bottom: 1px solid #fff; }
 .menu *      { display: block; list-style: none; font-weight: bold; }

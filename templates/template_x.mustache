@@ -1,37 +1,63 @@
-{{< layout }}
-    {{$content}}
-        <h1> {{app}} {{^create}}Update{{/create}} {{#create}}Create{{/create}} Template</h1>
-        {{^create}} <a href="/templates/{{name}}/delete">Delete Template</a> {{/create}}
+{{=<% %>=}}
+<%< layout %>
+    <%$content%>
+        <h1> <%app%> <%^create%>Update<%/create%> <%#create%>Create<%/create%> Template</h1>
+        <%^create%> <a href="/templates/<%name%>/delete">Delete Template</a> <%/create%>
 
-        {{> alert_success }}
+        <%> alert_success %>
 
-        <form method=post {{#create}}action=/templates{{/create}}>
+        <form method=post <%#create%>action=/templates<%/create%>>
 
-            {{#create}} <input type=hidden name=create value=1> {{/create}}
+            <%#create%> <input type=hidden name=create value=1> <%/create%>
 
             <label>
                 Template Name
-                <input name=name value="{{name}}" placeholder="Template Name">
+                <input name=name value="<%name%>" placeholder="Template Name">
             </label>
 
             <label>
                 Layout Stylesheet (CSS)
-                <textarea name=css placeholder="CSS">{{css}}</textarea>
+                <textarea name=css placeholder="CSS"><%css%></textarea>
             </label>
-            <label>
+
+            <label for=view class=has_help>
                 Layout Template (<a href="https://mustache.github.io/mustache.5.html">mustache</a>)
-                <textarea name=view placeholder="Layout">{{view}}</textarea>
             </label>
-            <label>
+            <p class=help for=view>
+            The data given to the layout template will be the exact fields presented in the data template. Note that the root key is <code>{{page}}</code>
+            </p>
+            <textarea name=view placeholder="Layout"><%view%></textarea>
+
+            <label for=data class=has_help>
                 Data Template (<a href="https://en.wikipedia.org/wiki/JSON">JSON</a>)
-                <textarea name=data placeholder="Placeholder Data">{{data}}</textarea>
             </label>
+            <p class=help for=data>
+                The data template acts as a prototype for any information stored for the page. This must be coordinated with the template to keep the data formatted properly.
+                This pays the most attention to top-level keys. Any sub-keys must have the correct data structure in the editing template to be passed through.
+            </p>
+            <p class=help for=data>
+                The following elements have a special meaning:
+            </p>
+            <ul class=help for=data>
+                <li><code>theme</code> (string) Required. Normally this wants to be the name of the current template. Note that it is possible to override this in the editing template.
+                <li><code>_add_keys</code> (list) This is added as a side-affect of how mustache works. If you need a list of things, and want to be able to access these specifically in the editing template, you will need to add the name of the key that holds that list to <code>_add_keys</code>.
+                <li><code>_images</code> (list of objects) Add any fields that need to be images in the following format: <code>{ "name": "NAME_OF_INPUT", "min-size": "BYTES", "max-size": "BYTES" }</code> - only <code>name</code> is required.
+            </ul>
+            <textarea name=data placeholder="Placeholder Data"><%data%></textarea>
+
             <label>
                 Editing Template (<a href="https://mustache.github.io/mustache.5.html">mustache</a>)
-                <textarea name=edit placeholder="Editing Template">{{edit}}</textarea>
+                <textarea name=edit placeholder="Editing Template"><%edit%></textarea>
             </label>
 
             <input class="button large" type=submit>
         </form>
-    {{/content}}
-{{/layout}}
+
+        <script>
+        [].forEach.call(document.querySelectorAll(".help"), function(el) {
+            el.classList.add("collapsed")
+        })
+        </script>
+    <%/content%>
+<%/layout%>
+<%={{ }}=%>
