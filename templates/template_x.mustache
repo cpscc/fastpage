@@ -41,7 +41,7 @@
             <ul class=help for=data>
                 <li><code>theme</code> (string) Required. Normally this wants to be the name of the current template. Note that it is possible to override this in the editing template.
                 <li><code>_add_keys</code> (list) This is added as a side-affect of how mustache works. If you need a list of things, and want to be able to access these specifically in the editing template, you will need to add the name of the key that holds that list to <code>_add_keys</code>.
-                <li><code>_images</code> (list of objects) Add any fields that need to be images in the following format: <code>{ "name": "NAME_OF_INPUT", "min-size": "BYTES", "max-size": "BYTES" }</code> - only <code>name</code> is required.
+                <li><code>_images</code> (list of objects) Add any fields that need to be images in the following format: <code>{ "name": "NAME_OF_INPUT", "label": "HUMAN FRIENDLY LABEL", "min-size": "BYTES", "max-size": "BYTES" }</code> - only <code>name</code> is required.
             </ul>
             <textarea name=data placeholder="Placeholder Data"><%data%></textarea>
 
