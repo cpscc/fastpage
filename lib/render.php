@@ -11,7 +11,7 @@ function render($view, array $model = [], $string_loader = false, $no_print = fa
         unset($options['loader']);
 
     $model = array_merge($model, (array)$_SESSION['flash'], ['app'=>APP]);
-    $_SESSION['flash'] = [];
+    if (!$no_print) $_SESSION['flash'] = [];
 
     if (authenticated()) $model['logged_in'] = true;
     if (admin()) $model['admin'] = true;

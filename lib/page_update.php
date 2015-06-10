@@ -16,6 +16,11 @@ function page_update($name, $data, &$error)
 	        if (isset($data[$k])) $v = $data[$k];
 	    }
 
+        if (isset($page['_images'])) {
+            $page = page_images($name, $page, $error);
+            if (!$page) return false;
+        }
+
 	    if (isset($data['permissions'])) resource_store('permissions/'.name_encode($data['name']), $data['permissions']);
 	} else {
 		$error = 'Error loading page template';
