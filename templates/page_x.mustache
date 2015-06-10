@@ -9,7 +9,7 @@
 
         {{> alert_success }}
 
-        <form method=post {{#create}}action=/pages{{/create}}>
+        <form method=post {{#create}}action=/pages{{/create}} enctype="multipart/form-data">
             <label>
                 Page Name
                 <input name=name value="{{name}}" placeholder="Page Name">
