@@ -54,8 +54,25 @@
         </form>
 
         <script>
-        [].forEach.call(document.querySelectorAll(".help"), function(el) {
+        var forEach = Array.prototype.forEach
+
+        function toggle_help(target) {
+            forEach.call(document.querySelectorAll(".help[for=" + target + "]"), function(l) {
+                l.classList.toggle("collapsed")
+            })
+        }
+
+        forEach.call(document.querySelectorAll(".help"), function(el) {
             el.classList.add("collapsed")
+        })
+
+        forEach.call(document.querySelectorAll(".has_help"), function(el) {
+            var link = document.createElement("a")
+            link.href = "#" + el.getAttribute("for")
+            link.innerHTML = "&rarr; Reference"
+            link.classList.add("help_link")
+            link.addEventListener("click", function() { toggle_help(el.getAttribute("for")) }, false)
+            el.appendChild(link)
         })
         </script>
     <%/content%>

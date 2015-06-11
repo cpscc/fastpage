@@ -37,6 +37,7 @@ textarea { min-height: 16em; font-family: monospace; padding: 1.2em 2em; }
 .wrapper:before, .wrapper:after { content: ""; display: table; clear: both; }
 .noheader { margin-top: 6%; }
 .help { margin: 1em 0 1.5em; color: #9B8D92; }
+.help_link { float: right; margin: 0; }
 .collapsed { display: none; }
 
 .menu        { background: #464174; color: #FFE8CF; font-size: 88%; line-height: 3.9em; float: left; width: 100%; margin-bottom: 3em; border-bottom: 1px solid #fff; }

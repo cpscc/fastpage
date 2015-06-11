@@ -1,8 +1,8 @@
 
   x  Verify JSON when creating templates
   x  Add image upload capabilities
+  x  Documentation on templates update
 
-  /  Documentation on templates update (added, show/hide needed)
   o  Page editing: verify that the user has access
   o  User listing and updating
   o  User password reset
