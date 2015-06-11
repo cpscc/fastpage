@@ -4,4 +4,5 @@ config/*
 users/*
 profiles/*
 public/profile/*
+PHP_errors.log
 
