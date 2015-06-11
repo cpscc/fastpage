@@ -30,6 +30,21 @@ $app->get('/not_allowed', function () use ($app) {
 
 
 /**
+ * User Dashboard
+ * XXX: needs to actually allow managing users
+ */
+$app->get('/users/create', function () use ($app) {
+    authenticate_admin($app);
+    render('user_x', template_list());
+});
+$app->post('/users/create', function () use ($app) {
+    authenticate_admin($app);
+    user_store($_REQUEST);
+    $_SESSION['flash']['success'] = "Created User " . $_REQUEST['login'];
+    $app->response->redirect('/users/create');
+});
+
+/**
  * Template Dashboard
  */
 $app->get('/templates', function () use ($app) {
