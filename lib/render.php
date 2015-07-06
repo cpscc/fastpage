@@ -10,7 +10,7 @@ function render($view, array $model = [], $string_loader = false, $no_print = fa
     if ($string_loader)
         unset($options['loader']);
 
-    $model = array_merge($model, (array)$_SESSION['flash'], ['app'=>APP]);
+    $model = (array)$model + (array)$_SESSION['flash'] + ['app'=>APP];
     if (!$no_print) $_SESSION['flash'] = [];
 
     if (authenticated()) $model['logged_in'] = true;
