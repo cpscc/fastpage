@@ -1,0 +1,36 @@
+{{< layout }}
+    {{$content}}
+        <h1> {{app}} Create User</h1>
+
+        {{> alert_success }}
+
+        <form method=post>
+            <input type=hidden name=role value="user">
+
+            <label>
+                First Name
+                <input name=firstname value="{{firstname}}" placeholder="John">
+            </label>
+
+            <label>
+                Last Name
+                <input name=lastname value="{{lastname}}" placeholder="Smith">
+            </label>
+
+            <hr>
+
+            <label>
+                Email Address
+                <input name=login value="{{login}}" placeholder="email@address.com">
+            </label>
+
+            <label>
+                Password
+                <input name=password value="{{password}}" placeholder="XXX">
+            </label>
+
+            <input class="button large" type=submit>
+        </form>
+    {{/content}}
+{{/layout}}
+
