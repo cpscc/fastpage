@@ -4,7 +4,8 @@
     "require": {
         "slim/slim": "~2.6",
         "mustache/mustache": "~2.8",
-        "symfony/yaml": "~2.6"
+        "symfony/yaml": "~2.6",
+        "mandrill/mandrill": "1.0.*"
     },
     "authors": [
         {
