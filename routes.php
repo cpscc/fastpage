@@ -24,6 +24,20 @@ $app->post('/create_session', function () use ($app) {
     return $app->response->redirect('/create_session');
 });
 
+$app->get('/password_reset', function () use ($app) {
+    render('password_reset', $_SESSION['flash']);
+});
+
+$app->post('/password_reset', function () use ($app) {
+    if ($x = user_exists($_POST['email']) && password_reset($_POST['email'])) {
+        $_SESSION['flash']['success'] = "A password reset has been sent to your email address. Please check your email.";
+    } else {
+        $_SESSION['flash'] = array_select_keys($_POST, ['email']);
+        $_SESSION['flash']['alert'] = "Unable to find that email address in our system";
+    }
+    return $app->response->redirect('/password_reset');
+});
+
 $app->get('/not_allowed', function () use ($app) {
     render('not_allowed');
 });
