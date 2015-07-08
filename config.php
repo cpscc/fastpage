@@ -12,6 +12,7 @@ ini_set('display_errors', true);
 error_reporting(E_ERROR | E_PARSE);
 
 define('APP', 'Fastpage');
+define('MANDRILL_KEY', 'RlQ_nMuztImIBKrBroM8Cg');
 
 
 /** Folders and Repositories */
