@@ -35,7 +35,28 @@ $app->post('/password_reset', function () use ($app) {
         $_SESSION['flash'] = array_select_keys($_POST, ['email']);
         $_SESSION['flash']['alert'] = "Unable to find that email address in our system";
     }
-    return $app->response->redirect('/password_reset');
+    return $app->response->redirect("/password_reset");
+});
+
+$app->get('/password_reset/:token', function ($token) use ($app) {
+    $token_verified = user_verify_token($token);
+    render('password_update', (array)$_SESSION['flash'] + compact('token_verified', 'token'));
+});
+
+$app->post('/password_reset/:token', function ($token) use ($app) {
+    if (!user_verify_token($token))
+        return $app->response->redirect("/password_reset/$token");
+
+    if (!empty($_POST['password']) && $_POST['password'] == $_POST['_password']) {
+        $user = array_merge(user_by_token($token), ['token'=>'','password'=>$_POST['password']]);
+        user_store($user);
+        $_SESSION['flash']['success'] = "Your password has been successfully updated.";
+        create_session($user['role'], $user['login']);
+        return $app->response->redirect('/pages');
+    }
+    $_SESSION['flash'] = array_select_keys($_POST, ['password', '_password']);
+    $_SESSION['flash']['alert'] = "The passwords do not match";
+    return $app->response->redirect("/password_reset/$token");
 });
 
 $app->get('/not_allowed', function () use ($app) {

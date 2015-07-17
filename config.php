@@ -22,4 +22,5 @@ repo_initialize('pages');
 repo_initialize('templates');
 repo_initialize('users');
 repo_initialize('permissions');
+repo_initialize('tokens');
 

@@ -1,7 +1,7 @@
 <?php
 function password_reset($email)
 {
-    $user = user_fetch($email) + ['token'=>str_rand()];
+    $user = array_merge(user_fetch($email), ['token'=>str_rand()]);
 
     if (user_store($user) && (strpos($email, "@") !== false)) {
         $slug = explode('/',$_SERVER['REQUEST_URI'])[1];
