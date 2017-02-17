@@ -19,6 +19,10 @@
     routes.php               URL routing a'la Slim
     lib/                     All of the PHP functions
 
+    users/
+        <username>.json      Simple storage for users, see users/.example.json
+                             for a template you can create a user with
+
 
 
  ~ url routes .~
